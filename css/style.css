@@ -1,0 +1,525 @@
+/* Début body */
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* background-color: #134C13; */
+    }
+    /* Début trois tribune */
+
+        /* Début partagés par les trois tribunes */
+
+            .chaise-left:hover,
+            .chaise-right:hover,
+            .chaise-top:hover {
+                z-index:100000
+            }
+
+            .chaise-top , 
+            .chaise-left,
+            .chaise-right .card{
+                white-space: nowrap;
+            }
+            .row,
+            .row-top{
+                z-index:-1
+            }
+            .row:hover,
+            .row-top:hover{
+                z-index:1
+            }
+
+        /* Fin partagés par les trois tribunes */
+
+
+        /* Début seat */
+
+            .seat
+            ,.seatChecks {
+                height: 20px;
+                width: 25px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                box-shadow: 0 3px 9pt rgba(0, 0, 0, .23), 0 3px 9pt rgba(0, 0, 0, .16);
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                font-weight: bold;
+                z-index: 100;
+            }
+            .seat.checked{
+                background-color: #000 !important;
+                color: #fff;
+            }
+            .seat:hover .card{
+                opacity: 1;
+                display: block;
+            }
+            .seat:hover span{
+                display: none;
+            }
+            .seatChecks{
+                background-color:gray !important;
+                color: #fff !important;
+            }
+            .chaiseAchete{
+                margin: 3px;
+            }
+        /* fin seat */
+
+
+        /* Début card */
+            .card {
+                background-color:#fff;
+                box-shadow: 0 5px 15px rgba(0, 0 , 0 , 0.1) ;
+                transition : 3s;
+                padding: 6px;
+                border-radius: 5px;
+                opacity: 0;
+                display: none;
+                
+            }
+            .checked .card{
+                color: #000;
+            }
+        /* Fin card */
+
+
+        /* Début Chaise left */
+            .chaise-left{
+                position: absolute; 
+                left: 0;
+                top: 18px;
+                display:flex;  
+            }
+            .chaise-left .seat,
+            .chaise-left .seatChecks {
+                background-color: rgb(1, 92, 1);
+                margin:11px 0px 7px 6px;
+                transform: rotate(270deg);
+            }
+            .chaise-left .seat span,
+            .chaise-left .seatChecks span{
+                transform: rotate(90deg);
+                color: #fff;
+            }
+            .chaise-left .card{
+                transform: rotate(90deg) translate(85px, 3px) ;
+            }
+            .chaise-left .row1{
+                transform:translate(3px, 3%) 
+            }
+            .chaise-left .row2{
+                transform:translate(6px, 6%) 
+            }
+            .chaise-left .row3{
+                transform:translate(9px, 9%) 
+            }
+            .chaise-left .row4{
+                transform:translate(12px, 12%) ;
+
+            }
+            .chaise-left .row5{
+                transform:translate(15px, 15%) 
+            } 
+        /* Fin Chaise left */
+
+
+        /* Début Chaise right */
+            .chaise-right{
+                position: absolute; 
+                right:0;
+                top: 22px;
+                display:flex; 
+                transform: rotate(180deg);
+            }
+            .chaise-right .seat,
+            .chaise-right .seatChecks {
+                background-color: rgb(255, 29, 29);
+                margin:11px 0px 7px 6px;
+                transform: rotate(270deg);
+            }
+            .chaise-right .seat span,
+            .chaise-right .seatChecks span{
+                color: #fff;
+                transform: rotate(270deg);
+            }
+            .chaise-right .card{
+                transform: rotate(270deg) translate(-85px, 3px) ;
+            }
+            .chaise-right .row1{
+                transform:translate(3px, 2.5%) 
+            }
+            .chaise-right .row2{
+                transform:translate(6px, 5%) 
+            }
+            .chaise-right .row3{
+                transform:translate(9px, 7.5%) 
+            }
+            .chaise-right .row4{
+                transform:translate(12px, 10%) 
+            }
+            .chaise-right .row5{
+                transform:translate(15px, 12.5%) 
+            }
+        /* Fin Chaise right */
+
+
+        /* Début Chaise top */
+            .chaise-top {
+                position: absolute;
+                top: 0;
+            }
+            .chaise-top .seat, 
+            .chaise-top .seatChecks{
+                background-color: rgb(245, 245, 22);
+                margin:3px;
+                transform: rotate(0deg);
+            }
+            .chaise-top:hover .row-top3{
+                z-index:-1;
+                position: relative;
+            }
+            .chaise-top .row-top .card{
+                transform:translate(0, 33px) 
+            }
+            .chaise-top .row-top{
+                display: flex;
+            }
+            .chaise-top .row-top2{
+                transform:translate(67px, 3px) 
+            }
+            .chaise-top .row-top3{
+                transform:translate(130px, 6px) 
+            }
+            
+        /* Fin Chaise top */
+
+    /* Fin trois tribune */
+
+
+
+
+    /* Début container2 */
+
+        .container2{
+            background-color: rgb(1, 92, 1);
+
+            height: 692px;
+            width: 950px;
+            display: flex;
+            justify-content: center;
+            border-radius: 4px 4px 0 0;
+            position: initial;
+            margin-top: 105px; 
+        }
+
+        /* Début container2span */
+            .container2spanLeft,
+            .container2spanRight{
+                position: absolute;
+                display: flex;
+                justify-content: center ;
+                bottom: 0;
+            }
+            .container2spanLeft{
+                left: 20%;
+            }
+            .container2spanRight{
+                right: 20%;
+            }
+            .container2spanLeft span , .container2spanRight span{
+                background-color: #fff;
+                opacity: 0.8;
+                width: 5px;
+                height:70px;
+                margin: 10px;
+                border-radius: 1px;
+            }
+        /* Fin container2span */
+
+        /* Début container2 ligne séparateur */
+            .screenLeft ,
+            .screenRight,
+            .screenTop,
+            .screenBottom {
+                border-bottom: 1px solid dimgrey;
+                width: 240px;
+                position: absolute;
+                top: 0;
+                z-index: -1;
+            }
+            .screenLeft{
+                left: 0;
+                transform:
+                rotate(27deg) translate(12px, 54px)
+            }
+            .screenRight{
+                right: 0;
+                transform:
+                rotate(-27deg) translate(-12px, 54px)
+            }
+            .screenBottom{
+                bottom: 0;
+                left: 0;
+                transform:
+                rotate(-20deg) translate(-100px, -59px)
+            }
+            .screenTop{
+                bottom: 0;
+                right: 0;
+                transform:
+                rotate(20deg) translate(100px, -59px)
+            }
+        /* Fin container2 ligne séparateur */
+
+        /* Début container2 place choisie */
+            .place-choisie{
+                position: absolute;
+                z-index: 1;
+                bottom: 2%;
+                left: 34%;
+                display: flex;
+                color: white;
+                font-size: 18px;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+            }
+            .place-choisie h5{
+                margin: 0 15px;
+                display: flex;
+               
+            }
+            button{
+                cursor: pointer;
+                padding: 6px 40px;
+                background: transparent;
+                border: 1px solid #ddd;
+                font-size: 18px;
+                color: #fff;
+                border-radius: 5px;
+                transition: 1s ease;
+            }
+            button:hover{
+                background-color:#00b806;
+                border-color: #00b806;
+            }
+        /* Fin container2 place choisie */
+
+        /* Début container */
+
+            /* Début container corner */
+                .corner-bottom-left,
+                .corner-bottom-right,
+                .corner-top-left,
+                .corner-top-right  {
+                    height: 20px;
+                    width: 20px;
+                    position: absolute;
+                    border: 2px solid #fff;
+                    border-radius: 71px 0 0;
+                    border-right: 0;
+                    border-bottom: 0;
+                }
+                .corner-top-left{
+                    transform: rotate(180deg);
+                    
+                }
+                .corner-top-right{
+                    right: 0;
+                    transform: rotate(270deg);
+                    top: -1px;
+                }
+                .corner-bottom-left{
+                    transform: rotate(90deg);
+                    bottom: -1px;
+                }
+                .corner-bottom-right{
+                    right: 0;
+                    transform: rotate(0deg);
+                    bottom: -1px;
+                }
+            /* Fin container corner */
+
+            /* Début container span */
+                .container{
+                    background-color: rgb(1, 92, 1);
+                    width: 900px;
+                    height: 350px;
+                    position: relative;
+                    border: 2px solid #fff;
+                    top: 5vh
+                }
+                .container .span{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: space-between ;
+                }
+                .container span{
+                    background-color: green;
+                    opacity: 0.6;
+                    width: 54px;
+                }
+                .container span.projecteur{
+                    opacity: 0.9;
+                }
+            /* Fin container span */
+
+            /* Début container h1 */
+            .container h1{
+                position: absolute;
+                left:24%;
+                top: 40%;
+                color: #fff;
+                opacity: 0.2;
+                z-index: 100;
+                font-size:55px
+            }
+            /* Fin container h1 */
+
+            /* Début container surface */
+                .surface-left, .surface-right{
+                    border: 2px solid #fff;
+                    width: 100px;
+                    height: 180px;
+                    position: absolute;
+                    top: 26%;
+                }
+                .surface-left{
+                    border-left: 0;
+                }
+                .surface-right{
+                    right: 0;
+                    border-right:0
+                }
+                .camp-left, .camp-right{
+                    border: 2px solid #fff;
+                    width: 40px;
+                    height: 80px;
+                    position: absolute;
+                    top: 27%;
+                }
+                .camp-left{
+                    left: -2px;
+                    border-left: 0;
+                }
+                .camp-right{
+                    right: -2px;
+                    border-right: 0;
+                }
+                .point-penalty-right , .point-penalty-left{
+                    border: 2px solid #fff;
+                    width: 8px;
+                    height: 8px;
+                    position: absolute;
+                    top: 46%;
+                    border-radius: 50%;
+                    background-color: #fff;
+                }
+                .point-penalty-right{
+                    left:34% ;
+                }
+                .point-penalty-left{
+                    right:34% ;
+                }
+                .entre-surface-right, .entre-surface-left{
+                    width: 25px;
+                    height: 50px;
+                    top: 34%;
+                    position: absolute;
+                    border: 2px solid #fff;
+                    border-radius: 0 90px 90px 0;
+                }
+                .entre-surface-right{
+                    right: 100%;
+                    border-left: 0;
+                    transform: rotate(180deg);
+
+                }
+                .entre-surface-left{
+                    left: 100%;
+                    border-left:0;
+                    transform: rotate(0deg);
+
+                }
+            /* Fin container surface */
+
+            /* Début container rond central */
+                .rond-central-bar{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid #fff;
+                    height:347px;
+                    position: absolute;
+                    left: 50%;
+                }
+                .rond-central-rond{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height:80px;
+                    width: 80px;
+                    border: 2px solid #fff;
+                    border-radius: 50%;
+                    position: absolute;
+                }
+                .rond-central-point{
+                    height:10px;
+                    width: 10px;
+                    position: absolute;
+                    background-color: #fff;
+                    border-left: 2px solid #fff;
+                    border-radius: 50%;
+                }
+            /* fin container rond central */
+
+            /* Début container footer */
+                .img-ball{
+                    position: absolute;
+                    bottom: -3rem;
+                    left: 47.8%;
+                }
+                .ballon{
+                    color: #fff;
+                    box-shadow: white 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+                }
+                .ballon.active{
+                    transform: translate(0 , -7px)   scale(1.1);
+                    transition: 0.5s ease;
+                }
+
+                .activate{
+                    animation:walk 1s steps(1) infinite, forward 25s linear infinite;
+
+                }
+            /* Fin container footer */
+
+        /* Fin container */
+
+        /* Début keyframs */
+            @keyframes forward{
+                0%{transform: translateX(200px);}
+                25%{transform: translateX(-50px)}
+                50%{transform: translateX(-10px)}
+                100%{transform: translateX(4px);}
+            }
+        /* Fin keyframs */
+
+    /* Fin container 2 */
+
+/* Fin body */

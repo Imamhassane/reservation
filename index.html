@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Début Tribune -->
+        <div class="chaise-left" afficheRowChaise value="6"></div>
+        <div class="chaise-right" afficheRowChaise value="6"></div>
+        <div class="chaise-top" afficheRowChaise valueTop="3"></div>
+    <!-- Fin tribune -->
+
+    <!-- Début Espace vert-->
+        <div class="container2">
+
+            <!-- Début trait-blanc left banc de touche -->
+                <div class="container2spanLeft" name="trait-blanc" value="6"></div> 
+            <!-- fin trait-blanc left banc de touche -->
+
+            <!-- Début trait-blanc right banc de touche -->
+                <div class="container2spanRight" name="trait-blanc" value="6"></div> 
+            <!-- fin trait-blanc right banc de touche -->
+
+            <!-- Début Ligne separateur de tribune -->
+                <div>
+                    <div class="screenLeft"></div>
+                    <div class="screenRight"></div>
+                    <div class="screenBottom"></div>
+                    <div class="screenTop"></div>
+                </div>
+            <!-- Fin Ligne-separateur de tribune -->
+
+            <!-- Début Compteur de place et prix-->
+                <div class="place-choisie">
+                    <h5 id="nbrePlace">Nbre de place : 0</h5>
+                    <h5 id="prixTotal">Prix total : 0 F CFA</h5>
+                    <button id="valider">valider</button>
+                </div>
+            <!-- Fin Compteur de place et prix-->
+
+            <!-- Début Terrain -->
+                <div class="container">
+                    <!-- Début traits se troouvant au niveau  du terrain -->
+                        <div class="span">
+                            <h1>Imam Hassane Niass</h1>
+                            <span></span>
+                            <span></span>
+                            <span class="projecteur"></span>
+                            <span class="projecteur"></span>
+                            <span class="projecteur"></span>
+                            <span class="projecteur"></span>
+                            <span class="projecteur"></span>
+                            <span></span>
+                            <span></span>
+                        </div>  
+                    <!-- Fin traits se troouvant au niveau  du terrain -->
+
+                    <!-- Début corner-->
+                        <div class="corner">
+                            <div class="corner-top-left"></div>
+                            <div class="corner-top-right"></div>
+                            <div class="corner-bottom-left"></div>
+                            <div class="corner-bottom-right"></div>
+                        </div>
+                    <!-- Fin corner-->
+
+                    <!-- Début camp -->
+                        <div class="camp">
+                            <div class="surface-left">
+                                <div class="entre-surface-left"></div>
+                                <div class="point-penalty-left"></div>
+                                <div class="camp-left"></div>
+                            </div>
+                            <div class="surface-right">
+                                <div class="entre-surface-right"></div>
+                                <div class="point-penalty-right"></div>
+                                <div class="camp-right"></div>
+                            </div>
+                        </div>
+                    <!-- Fin corner-->
+
+                    <!-- Début rond central-->
+                        <div class="rond-central">
+                            <div class="rond-central-bar">
+                                <div class="rond-central-rond">
+                                    <div class="rond-central-point"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Fin corner-->
+                    
+            
+                    <div class="img-ball">
+                        <img src="images/téléchargement.png" alt="" width="15" height="15" class="ballon active">
+                        <img src="images/téléchargement.png" alt="" width="15" height="15" class="ballon">
+                        <img src="images/téléchargement.png" alt="" width="15" height="15" class="ballon">
+                    </div>    
+                </div>   
+            <!-- Fin terrrain-->
+        </div>
+    <!-- Fin espace vert -->
+
+    <!-- Début Fichier JS-->
+        <script src="js/afficheChaise.js" ></script>
+        <script src="js/afficheNumChaise.js" ></script>
+        <script src="js/ChoosePlace.js" ></script>
+        <script src="js/createRowChaise.js" ></script>
+        <script src="js/script.js" ></script>
+    <!-- Fin Fichier JS-->
+
+</body>
+</html>
