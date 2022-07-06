@@ -34,19 +34,22 @@ const prixTotal = document.getElementById("prixTotal");
             /* change color and update number of palace checked at click */
                 element.addEventListener("click", () => {
 
-                    /* ajouter ou retirer la class checked pour indiquer que la chaise est cochée ou décochée */
-                        element.classList.toggle("checked");
-                    /*  */
-
                     /* réinitialisé le prix total à zéro à chaque click pour le calculer à la fin */
                         let prix = 0
                     /*  */
 
+                    if (element.classList[0] == "seat") {
+
+                    /* ajouter ou retirer la class checked pour indiquer que la chaise est cochée ou décochée */
+                        element.classList.toggle("checked");
+                    /*  */                   
+
                     /* ajouter les chaises dans un tableau */
-                        addAndRemove(tab, element.getAttribute("value"));
-                        localStorage.setItem("tab", tab)
-                        nbrePlace.innerText = "Nbre de place : " + tab.length;
-                    /* fin ajouter les chaises dans un tableau */
+                            addAndRemove(tab, element.getAttribute("value"));
+                            localStorage.setItem("tab", tab)
+                            nbrePlace.innerText = "Nbre de place : " + tab.length;
+                            /* fin ajouter les chaises dans un tableau */
+                    }
                 
                     /* création et ajout d'objet chaise dans un tableau */
                         let machaise = new Object();
@@ -76,7 +79,7 @@ const prixTotal = document.getElementById("prixTotal");
                 });
                 /* fin change color and update number of palace checked at click */
                 
-            });
+        });
     }
 /* Fin de la fonction qui permet de choisir une chaise  */    
 
@@ -97,7 +100,9 @@ function restor() {
                     element.classList.remove("seat")
                     element.classList.remove("checked")
                     element.classList.add("seatChecks")
-                    element.setAttribute("name" , "seatChecks")
+                    element.removeAttribute("name" )
+                    element.removeAttribute("prix")
+
                 }
             }
         });

@@ -11,7 +11,6 @@ function afficheChaise() {
         nbr = 18
     }
     
-
     for (let element of afficheRowChaise) {
 
         let value = element.getAttribute("value");

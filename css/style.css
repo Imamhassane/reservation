@@ -287,7 +287,7 @@
                 position: absolute;
                 z-index: 1;
                 bottom: 2%;
-                left: 34%;
+                left: 35%;
                 display: flex;
                 color: white;
                 font-size: 18px;
@@ -298,11 +298,10 @@
             .place-choisie h5{
                 margin: 0 15px;
                 display: flex;
-               
             }
             button{
                 cursor: pointer;
-                padding: 6px 40px;
+                padding: 6px 15px;
                 background: transparent;
                 border: 1px solid #ddd;
                 font-size: 18px;
