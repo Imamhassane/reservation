@@ -3,6 +3,9 @@
     const afficheRowChaise = document.querySelectorAll("[afficheRowChaise]")
     const seat = document.getElementsByName("seat")
     const traitBlanc = document.getElementsByName("trait-blanc")
+    const infoClient = document.getElementById  ("info-client")
+    const removeModal = document.getElementById  ("removeModal")
+
     /* Fin recupération */
    
     
@@ -11,7 +14,12 @@
     afficheChaise() 
     afficheNumChaise()
     ChoosePlace() 
-    document.getElementById("valider").addEventListener("click", restor)
+    restor()
+    document.getElementById("valider").addEventListener("click" , ()=>{
+        const checks = localStorage.getItem("tab")
+        infoClient.classList.add("open")
+    })
+    removeModal.addEventListener("click", ()=>{infoClient.classList.remove("open")})
     
 /* Fin appel de fonctions  */
 

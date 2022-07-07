@@ -9,6 +9,40 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="info-client" id="info-client">
+        <form id="form">
+            <div class="removeModal" id="removeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="form-control">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom">
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="prenom">Prenom</label>
+                <input type="text" name="prenom" id="prenom">
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                <small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="tel">Telephone</label>
+                <input type="text" name="tel" id="tel">
+                <small></small>
+            </div>
+
+            <input type="submit" id="submit" value="valider">
+
+        </form>
+    </div>
 
     <!-- Début Tribune -->
         <div class="chaise-left" afficheRowChaise value="6"></div>
@@ -18,7 +52,6 @@
 
     <!-- Début Espace vert-->
         <div class="container2">
-
             <!-- Début trait-blanc left banc de touche -->
                 <div class="container2spanLeft" name="trait-blanc" value="6"></div> 
             <!-- fin trait-blanc left banc de touche -->
@@ -107,6 +140,7 @@
     <!-- Fin espace vert -->
 
     <!-- Début Fichier JS-->
+        <script src="js/addInfoClient.js" ></script>
         <script src="js/afficheChaise.js" ></script>
         <script src="js/afficheNumChaise.js" ></script>
         <script src="js/ChoosePlace.js" ></script>
