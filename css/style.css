@@ -153,21 +153,29 @@
                 background-color: #000 !important;
                 color: #fff;
             }
-            .seat:hover .card{
+            .seat:hover .card,
+            .seatChecks:hover .card{
                 opacity: 1;
                 display: block;
             }
-            .seat:hover span{
+            .seat:hover span , 
+            .seatChecks:hover span{
                 display: none;
             }
+
+            /* checks */
             .seatChecks{
                 background-color:gray !important;
                 color: #fff !important;
                 cursor:not-allowed;
             }
+            .seatChecks .card{
+                color: #000;
+            }
             .chaiseAchete{
                 margin: 3px;
             }
+            
         /* fin seat */
 
 

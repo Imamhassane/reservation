@@ -15,10 +15,7 @@
     afficheNumChaise()
     ChoosePlace() 
     restor()
-    document.getElementById("valider").addEventListener("click" , ()=>{
-        const checks = localStorage.getItem("tab")
-        infoClient.classList.add("open")
-    })
+
     removeModal.addEventListener("click", ()=>{infoClient.classList.remove("open")})
     
 /* Fin appel de fonctions  */
