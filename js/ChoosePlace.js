@@ -74,38 +74,38 @@ function getFieldName(input) {//Retour le nom de chaque input en se basant sur s
 // ================================ Choisir place =======================================
 
 /* Cette fonction permet d'ajouter ou retirer un élément */
-function addAndRemove(tab, element) {
+function addAndRemove(tab, element ) {
     
     let index = tab.indexOf(element);
     if (index !== -1) {
         tab.splice(index, 1);
-    } else {
-        // localStorage.removeItem("students")
-        let result =  JSON.parse(localStorage.getItem("placeChecked"));
-
-        tab.push(element);  
-        localStorage.setItem("placeChecked", JSON.stringify(tab));
-
-        let index2 = result.indexOf(element);
-
-        if (index2 !== -1) {
-            tab.splice(index2, 1);
-        }else{
-            result.push(element)
-        }
-        
-        localStorage.setItem("placeChecked", JSON.stringify(result));
     }
-    return tab;
+   
+    let result = JSON.parse(localStorage.getItem("placeChecked"));
+
+    tab.push(element);  
+    localStorage.setItem("placeChecked", JSON.stringify(tab));
+
+    
+    let index2 = result.indexOf(element);
+    
+    if (index2 !== -1) {
+        result.splice(index2, 1);
+    }else{
+        result.push(element)
+    }
+    localStorage.setItem("placeChecked", JSON.stringify(result));    
 }
-function addAndRemoveAlt(tab, element) {
+function addAndRemoveAlt(tab, element ) {
     
     let index = tab.indexOf(element);
     if (index !== -1) {
         tab.splice(index, 1);
-    } else {
-        tab.push(element);  
-    }
+    }else{
+        tab.push(element);
+    }  
+    localStorage.setItem("tab", JSON.stringify(tab));
+
 }
 /* Fin de la fonction qui permet d'ajouter ou retirer un élément */
 
@@ -132,6 +132,7 @@ const prixTotal = document.getElementById("prixTotal");
             /* change color and update number of palace checked at click */
                 element.addEventListener("click", () => {
 
+
                     /* réinitialisé le prix total à zéro à chaque click pour le calculer à la fin */
                         let prix = 0
                     /*  */
@@ -142,10 +143,10 @@ const prixTotal = document.getElementById("prixTotal");
                             element.classList.toggle("checked");
                         /* fin */    
 
-                        // Nombre de place
+                            // Nombre de place
                             addAndRemoveAlt(tab1, element.getAttribute("value"));                            
-                            nbrePlace.innerText = "Nbre de place : " + tab1.length;  
-                        
+                            nbrePlace.innerText = "Nbre de place : " + tab1.length; 
+                          
                             /* création et ajout d'objet chaise dans un tableau */
                                 let machaise = new Object();
                                 machaise.numero = element.getAttribute("value")
@@ -172,68 +173,66 @@ const prixTotal = document.getElementById("prixTotal");
                             
                             /* Fin */
 
-                    }
 
-                    /* Validation de la reservation */
-                    document.getElementById("valider").addEventListener("click" , ()=>{
-                        // Open modal
-                        infoClient.classList.add("open")
+                        /* Validation de la reservation */
+                        document.getElementById("valider").addEventListener("click" , ()=>{
+                            // Open modal
+                            infoClient.classList.add("open")
 
-                        // Tableau de personne
-                        let tabPersonne = []
+                            // Tableau de personne
+                            let tabPersonne = []
 
-                        // Validation formulaire
-                            form.addEventListener('submit',(e)=>{
+                            // Validation formulaire
+                                form.addEventListener('submit',(e)=>{
 
-                                isVerify = []
-                                let valid = false
+                                    isVerify = []
+                                    let valid = false
 
-                                checkEmail(email); 
-                                checkLength(tel , 9 , 9)
-                                checkLength(nom , 2 , 12)
-                                checkLength(prenom , 3 , 20)
+                                    checkEmail(email); 
+                                    checkLength(tel , 9 , 9)
+                                    checkLength(nom , 2 , 12)
+                                    checkLength(prenom , 3 , 20)
 
-                                for (let i = 0; i < isVerify.length; i++) {
-                                    if (isVerify[i]==false) {
-                                        e.preventDefault();//Bloquer la soumission du formulaire
-                                    }else{
-                                        valid = true
+                                    for (let i = 0; i < isVerify.length; i++) {
+                                        if (isVerify[i]==false) {
+                                            e.preventDefault();//Bloquer la soumission du formulaire
+                                        }else{
+                                            valid = true
+                                        }
                                     }
-                                }
-                           
-                                // form isValid
-                                if (valid) {
-                                    // 
-                                    /* ajouter les chaises dans un tableau */
-                                        let getTab =  addAndRemove(tab, element.getAttribute("value"));                            
-                                    /* fin  */
+                                    // form isValid
+                                    if(valid) {
+                                        // 
+                                        let result = JSON.parse(localStorage.getItem("tab"));
+                                        let personne = new Object();
+                                        personne.nom = nom.value
+                                        personne.prenom = prenom.value
+                                        personne.email = email.value
+                                        personne.tel = tel.value
+                                        personne.chaise = result
+                                        personne.prix = parentPrix
 
-                                    let personne = new Object();
-                                    personne.nom = nom.value
-                                    personne.prenom = prenom.value
-                                    personne.email = email.value
-                                    personne.tel = tel.value
-                                    personne.chaise = getTab
-                                    personne.prix = parentPrix
+                                        //  storage in localStorage
+                                        let resultPers =  JSON.parse(localStorage.getItem("tabPersonne"));
+                                        tabPersonne.push(personne);
 
-                                    //  storage in localStorage
-                                    let resultPers =  JSON.parse(localStorage.getItem("tabPersonne"));
-                                    tabPersonne.push(personne);
-                                    localStorage.setItem("tabPersonne", JSON.stringify(tabPersonne));
-
-                                    resultPers.push(personne)
-                                    localStorage.setItem("tabPersonne" , JSON.stringify(resultPers))
-                                                                                               
-                                    // Rechargement de page
-                                        window.location.reload(); 
-                                }   
-                            });
-                        
-                    })
+                                        localStorage.setItem("tabPersonne", JSON.stringify(tabPersonne));
+                                        if (resultPers != null){
+                                            resultPers.push(personne)
+                                            localStorage.setItem("tabPersonne" , JSON.stringify(resultPers))
+                                        }
+                                        addAndRemove(tab , element.getAttribute("value"))
+                                                                                                
+                                        // Rechargement de page
+                                            window.location.reload(); 
+                                    }   
+                                });
+                            
+                        })
+                    }
                     /* Fin Validation de la reservation */
                 });
                 /* fin change color and update number of palace checked at click */
-                
         });
     }
 /* Fin de la fonction qui permet de choisir une chaise  */    
@@ -243,6 +242,7 @@ function restor() {
     let client = JSON.parse(localStorage.getItem("tabPersonne"));
 
     let checks = localStorage.getItem("placeChecked")
+    // console.log(checks);
     if (checks == null) {
         console.log("aucune place choisie");
     }else{
@@ -259,16 +259,32 @@ function restor() {
                     // element.removeAttribute("name" )
                     element.removeAttribute("prix")
                 }
+                if (client != null) {
+                    client.forEach(elementClient => {
+                        let chaise = elementClient.chaise
+                        for (let i = 0; i < chaise.length; i++) {
+                            
+                            let elementChaise = chaise[i];
+                            if (elementChaise == element.getAttribute("value") ) {
+                                element.innerHTML =
+                                `
+                                <span>${elementChaise}</span>
+                                <div class="card">
+                                    <h3>Propriétaire</h3>
+                                    <p>Nom complet : ${elementClient.prenom} ${elementClient.nom}</p>
+                                    <p>Email : ${elementClient.email} </p>
+                                    <p>Téléphone : ${elementClient.tel} </p>
+
+                                </div>
+
+                                `
+                            }
+                        } 
+                    });  
+                }       
             }
         });
         
-                    if (client != null) {
-                        for (const [i , iterateur] of client.entries()) {
-                            
-                            console.log(iterateur);    
-                
-                        }
-                    }
         //  Toggle client
         prixTotal.innerText = "Prix total : 0 F CFA"
         nbrePlace.innerText = "Nbre de place : 0";

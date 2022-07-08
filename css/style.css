@@ -169,8 +169,16 @@
                 color: #fff !important;
                 cursor:not-allowed;
             }
+            .seatChecks p{
+                padding:5px;
+            }
+            .seatChecks h3{
+                text-align: center;
+                font-weight: bold;
+            }
             .seatChecks .card{
                 color: #000;
+                
             }
             .chaiseAchete{
                 margin: 3px;
@@ -233,6 +241,7 @@
             .chaise-left .row5{
                 transform:translate(15px, 15%) 
             } 
+            
         /* Fin Chaise left */
 
 
