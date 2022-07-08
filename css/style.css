@@ -196,10 +196,12 @@
                 border-radius: 5px;
                 opacity: 0;
                 display: none;
-                
             }
             .checked .card{
                 color: #000;
+            }
+            .card.cardName{
+
             }
         /* Fin card */
 
@@ -225,6 +227,7 @@
             .chaise-left .card{
                 transform: rotate(90deg) translate(85px, 3px) ;
             }
+           
             .chaise-left .row1{
                 transform:translate(3px, 3%) 
             }
@@ -267,6 +270,20 @@
             .chaise-right .card{
                 transform: rotate(270deg) translate(-85px, 3px) ;
             }
+            /* .chaise-right .card.cardName{
+                transform: rotate(270deg) translate(-90px, 20px) ;
+            }
+            .chaise-right .seatChecks94 .card.cardName,
+            .seatChecks112 .card.cardName,
+            .seatChecks129 .card.cardName,
+            .seatChecks145 .card.cardName,
+            .seatChecks160 .card.cardName,
+            .seatChecks174 .card.cardName,
+            .seatChecks95 .card.cardName,
+            .seatChecks113 .card.cardName,
+            .seatChecks130 .card.cardName{
+                transform: rotate(270deg) translate(-90px, -30px) ;
+            } */
             .chaise-right .row1{
                 transform:translate(3px, 2.5%) 
             }
@@ -296,6 +313,7 @@
                 margin:3px;
                 transform: rotate(0deg);
             }
+            
             .chaise-top:hover .row-top3{
                 z-index:-1;
                 position: relative;
@@ -303,6 +321,11 @@
             .chaise-top .row-top .card{
                 transform:translate(0, 33px) 
             }
+            .chaise-top .row-top .card.cardName{
+                transform:translate(5px, 70px) ;
+                margin-right: 15px;
+            }
+          
             .chaise-top .row-top{
                 display: flex;
             }

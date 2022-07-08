@@ -223,8 +223,6 @@ const prixTotal = document.getElementById("prixTotal");
                                         }
                                         addAndRemove(tab , element.getAttribute("value"))
                                                                                                 
-                                        // Rechargement de page
-                                            window.location.reload(); 
                                     }   
                                 });
                             
@@ -256,6 +254,8 @@ function restor() {
                     element.classList.remove("seat")
                     element.classList.remove("checked")
                     element.classList.add("seatChecks")
+                    element.classList.add("seatChecks"+elements)
+
                     // element.removeAttribute("name" )
                     element.removeAttribute("prix")
                 }
@@ -269,7 +269,7 @@ function restor() {
                                 element.innerHTML =
                                 `
                                 <span>${elementChaise}</span>
-                                <div class="card">
+                                <div class="card cardName">
                                     <h3>Propriétaire</h3>
                                     <p>Nom complet : ${elementClient.prenom} ${elementClient.nom}</p>
                                     <p>Email : ${elementClient.email} </p>
