@@ -75,25 +75,29 @@ function getFieldName(input) {//Retour le nom de chaque input en se basant sur s
 
 /* Cette fonction permet d'ajouter ou retirer un élément */
 function addAndRemove(tab, element ) {
-    
+    // ajouter et retirer
     let index = tab.indexOf(element);
     if (index !== -1) {
         tab.splice(index, 1);
     }
    
+    // D'abord on récupére le contenu du localStorage
     let result = JSON.parse(localStorage.getItem("placeChecked"));
 
+    // on ajoute de nouveaux éléments dans le tableau
     tab.push(element);  
     localStorage.setItem("placeChecked", JSON.stringify(tab));
 
-    
+    // En cas de retrait de chaise
     let index2 = result.indexOf(element);
     
     if (index2 !== -1) {
         result.splice(index2, 1);
     }else{
+        // on ajoute les nouveaux éléments dans le tableau contenant l'ancien contenu du localStorage
         result.push(element)
     }
+    // Puis ici on le restock à nouveau dans le localStorage
     localStorage.setItem("placeChecked", JSON.stringify(result));    
 }
 function addAndRemoveAlt(tab, element ) {
@@ -104,7 +108,16 @@ function addAndRemoveAlt(tab, element ) {
     }else{
         tab.push(element);
     }  
+
     localStorage.setItem("tab", JSON.stringify(tab));
+
+    /* afficher le nombre de place et le boutton de validation si le tableau est rempli */
+        if(tab.length > 0){
+            document.getElementById("place-choisie").style.display="flex";
+        }else{
+            document.getElementById("place-choisie").style.display="none";
+        }
+    /*  */
 
 }
 /* Fin de la fonction qui permet d'ajouter ou retirer un élément */
@@ -222,7 +235,7 @@ const prixTotal = document.getElementById("prixTotal");
                                             localStorage.setItem("tabPersonne" , JSON.stringify(resultPers))
                                         }
                                         addAndRemove(tab , element.getAttribute("value"))
-                                                                                                
+                                        localStorage.setItem("success",1)                                                 
                                     }   
                                 });
                             
@@ -236,16 +249,25 @@ const prixTotal = document.getElementById("prixTotal");
 /* Fin de la fonction qui permet de choisir une chaise  */    
 
 
-function restor() {
+function restor(){
+    placeRestante.innerHTML = "Nbre de place restante : " +seat.length
     let client = JSON.parse(localStorage.getItem("tabPersonne"));
-
     let checks = localStorage.getItem("placeChecked")
-    // console.log(checks);
+    
+
     if (checks == null) {
         console.log("aucune place choisie");
     }else{
         let mychecks = checks.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','').split(' ')
         const seats = document.getElementsByName("seat")
+        /* place restante*/
+        let nbr = seat.length-mychecks.length
+        if(nbr > 0){
+            placeRestante.innerHTML = "Nbre de place restante : "+nbr 
+        }else{
+            placeRestante.innerHTML = "Stade plein!" 
+        }
+        /*  */
         seats.forEach(element => {
             for (let i = 0; i < mychecks.length; i++) {
                 let elements = mychecks[i];
@@ -274,7 +296,7 @@ function restor() {
                                     <p>Nom complet : ${elementClient.prenom} ${elementClient.nom}</p>
                                     <p>Email : ${elementClient.email} </p>
                                     <p>Téléphone : ${elementClient.tel} </p>
-
+                                    <p>Prix de la chaise : ${elementClient.prix} </p>
                                 </div>
 
                                 `

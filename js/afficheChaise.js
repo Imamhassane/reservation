@@ -1,24 +1,15 @@
 /*
     Cette fonction affiche les chaises , c'est ici qu'on fait appel à la fonction createRowChaise
 */
-function afficheChaise() {
-
-    let nbr = 0
-
-    if (screen.height > 769 ) {
-        nbr = 23
-    }else{
-        nbr = 18
-    }
+function afficheChaise(){
+   
     
     for (let element of afficheRowChaise) {
-
         let value = element.getAttribute("value");
         let value2 = element.getAttribute("valueTop");
-
         // appel de fonction pour créer les lignes
-        createRowChaise(value, element, nbr);
-        createRowChaise(value2, element, 40);
+        createRowChaise(value, element, 21);
+        createRowChaise(value2, element, 36);
     }
 
     /* 

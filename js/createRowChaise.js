@@ -8,17 +8,15 @@
             let div = document.createElement("div");
             div.setAttribute("chaise", "");
 
-            if (nbr < 40) {
-                div.setAttribute("value", nbr - j);
-                div.classList.add("row", `row${j}`);
+            if (nbr <= 22) {
                 let prix = 10000;
                 div.setAttribute("prix", prix + (2000 * j));
             } else {
-                div.setAttribute("value", nbr - (j * 4));
-                div.classList.add("row-top", `row-top${j + 1}`);
                 let prix = 3000;
                 div.setAttribute("prix", prix + (1000 * j));
             }
+            div.setAttribute("value", nbr);
+            div.classList.add("row", `row${j}`) ;
             element.appendChild(div);
         }
     }

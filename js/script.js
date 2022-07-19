@@ -5,9 +5,12 @@
     const traitBlanc = document.getElementsByName("trait-blanc")
     const infoClient = document.getElementById  ("info-client")
     const removeModal = document.getElementById  ("removeModal")
+    const placeRestante = document.getElementById  ("placeRestante")
+    const successMessage = document.getElementById("success")
+
 
     /* Fin recupération */
-   
+
     
     /* Appel de fonctions  */
     
@@ -49,3 +52,14 @@
     }, 500);
 
 /* Fin script for ball */
+
+// affiche success message
+if (localStorage.getItem("success")==1) {
+    successMessage.classList.add("success")
+}
+if(successMessage){
+    setInterval(() => {
+        successMessage.classList.remove("success")
+    }, 5000);
+    localStorage.removeItem("success")
+}

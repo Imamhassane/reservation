@@ -1,4 +1,5 @@
 /* Début Afficher le numéro de chaque chaise  */
+
 function afficheNumChaise() {
     for (let i = 0; i < seat.length; i++) {
 
