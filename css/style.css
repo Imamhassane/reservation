@@ -143,26 +143,6 @@
                 opacity: 1;
                 display: block;
             }
-            .chaise-bottom .card{
-                transform:translate(0, 30px)  rotate(180deg);
-            }
-            .chaise-top .card{
-                transform:translate(0, 33px) 
-            }
-            .chaise-top .card.cardName{
-                transform:translate(5px, 80px) ;
-                position:absolute;
-            }          
-            .chaise-right .card{
-                transform: rotate(270deg) translate(-85px, 3px) ;
-            } 
-            .chaise-left .card{
-                transform: rotate(90deg) translate(80px, 0) ;
-            }
-            .seatChecks .card{
-                transform: rotate(90deg) translate(110px, 0) ;
-            }
-            
         /* Fin card */
         /* Début Chaise left */
             .chaise-left{
@@ -178,7 +158,9 @@
                 transform: rotate(270deg);
                 z-index: 1;
             }
-            
+            .chaise-left .card{
+                transform: rotate(90deg) translate(85px, -3px) ;
+            }
             /* .chaise-left,
             .chaise-right,*/
                 .chaise-top,
@@ -192,9 +174,17 @@
                     z-index: 2;
                     border-radius: 0 1590px 1590px 90px;  
                 }
+                .chaise-top .card{
+                    transform:translate(0, 33px) 
+                }
+                .chaise-top .card.cardName {
+                    transform:translate(5px, 80px) ;
+                    position:absolute;
+                }   
             /*  */
         /* Fin Chaise left */
         /* Début Chaise right */
+        
             .chaise-right{
                 position: absolute; 
                 right: 0;
@@ -207,8 +197,13 @@
             .chaise-right .seatChecks {
                 margin:11px 0px 7px 6px;
                 transform: rotate(270deg);
+                z-index: 1;
             }
-           
+            .chaise-right .card{
+                transform: rotate(-90deg) translate(-85px, 3px) ;
+            }
+
+         
         /* Fin Chaise right */
         /* Début Chaise top */
             .chaise-top {
@@ -227,13 +222,15 @@
                 justify-content: center;
                 align-items:center;
             }
-                
+
         /* Fin Chaise top */
+
+
+
         /* Chaise bottom */
             .chaise-bottom {
                 position: absolute; 
                 bottom: 0;
-                /* padding:15px;                */
                 transform: rotate(180deg);
                 width: 100%;
             }
@@ -241,7 +238,15 @@
                 margin:3px;
                 transform: rotate(180deg);
             }
-           
+            
+            .chaise-bottom .card{
+                transform:translate(0, 30px)  rotate(180deg);
+            }
+              
+            .chaise-bottom .card.cardName{
+                transform:translate(0, 70px)  rotate(180deg);
+                position:absolute;
+            }    
         /* Fin Chaise bottom */
     /* Fin tribune */
     /* Début container2 */
@@ -567,8 +572,8 @@
         }
         form #submit {
             cursor: pointer;
-            background-color: #3498db;
-            border: 2px solid #3498db;
+            background-color: green;
+            border: 2px solid green;
             border-radius: 4px;
             color: #fff;
             display: block;

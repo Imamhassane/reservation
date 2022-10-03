@@ -203,8 +203,8 @@ const prixTotal = document.getElementById("prixTotal");
 
                                     checkEmail(email); 
                                     checkLength(tel , 9 , 9)
-                                    checkLength(nom , 2 , 12)
-                                    checkLength(prenom , 3 , 20)
+                                    checkLength(nom , 2 , 8)
+                                    checkLength(prenom , 2 , 10)
 
                                     for (let i = 0; i < isVerify.length; i++) {
                                         if (isVerify[i]==false) {
@@ -253,13 +253,13 @@ function restor(){
     placeRestante.innerHTML = "Nbre de place restante : " +seat.length
     let client = JSON.parse(localStorage.getItem("tabPersonne"));
     let checks = localStorage.getItem("placeChecked")
+    const seats = document.getElementsByName("seat")
     
 
     if (checks == null) {
         console.log("aucune place choisie");
     }else{
         let mychecks = checks.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','').split(' ')
-        const seats = document.getElementsByName("seat")
         /* place restante*/
         let nbr = seat.length-mychecks.length
         if(nbr > 0){
@@ -292,11 +292,10 @@ function restor(){
                                 `
                                 <span>${elementChaise}</span>
                                 <div class="card cardName">
-                                    <h3>Propriétaire</h3>
                                     <p>Nom complet : ${elementClient.prenom} ${elementClient.nom}</p>
-                                    <p>Email : ${elementClient.email} </p>
-                                    <p>Téléphone : ${elementClient.tel} </p>
-                                    <p>Prix de la chaise : ${elementClient.prix} </p>
+                                    <p>Contacts : ${elementClient.email}</p>
+                                    <p>Tel : ${elementClient.tel} </p>
+                                    <p>Prix : ${elementClient.prix} F CFA </p>
                                 </div>
 
                                 `
@@ -305,11 +304,22 @@ function restor(){
                     });  
                 }       
             }
+            
         });
         
         //  Toggle client
         prixTotal.innerText = "Prix total : 0 F CFA"
         nbrePlace.innerText = "Nbre de place : 0";
     } 
+    seats.forEach(element => {
+        element.addEventListener('mousemove',()=>{
+            let parent = element.parentElement.parentElement
+            for (let el of afficheRowChaise) {
+                el.style.zIndex = 1
+            }
+            parent.style.zIndex = 10000
+            
+        })
+    });
 
 }
