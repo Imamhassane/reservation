@@ -191,7 +191,10 @@ const prixTotal = document.getElementById("prixTotal");
                         document.getElementById("valider").addEventListener("click" , ()=>{
                             // Open modal
                             infoClient.classList.add("open")
-
+                            //
+                            for (let el of afficheRowChaise) {
+                                el.style.zIndex = 1
+                            }
                             // Tableau de personne
                             let tabPersonne = []
 

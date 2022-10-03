@@ -526,7 +526,7 @@
         /* client form */
          .info-client{
             position: absolute;
-            z-index: 1000;
+            z-index: 10000;
             top: 0;
             left: 0;
             right: 0;
@@ -586,13 +586,14 @@
             display: flex;
             justify-content: center; 
             align-items: center;
-            background-color: #3498db;
-            border: 2px solid #3498db;  
+            background-color:red;
+            border: 2px solid red;  
             width: 24px;
-            border-radius: 2px;
+            border-radius: 3px;
             color: #fff;
             margin-left:auto;
             cursor: pointer;
+            
         }
         .form-control.success input {
             border-color: green;
